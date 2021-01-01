@@ -11,7 +11,6 @@ const jwtConfig: JwtModuleOptions = {
 
 var cookieExtractor = function (req) {
     var token = null;
-    console.log(`Extracting cookies here bitch`, req.cookies)
     if (req && req.cookies) {
         token = req?.cookies?.session?.token;
     }
@@ -19,7 +18,6 @@ var cookieExtractor = function (req) {
 };
 
 var cookieSetter = function (res, cookieData) {
-    console.log(`SETTING COOKIES`, cookieData)
     res.cookie('session', cookieData, {
         expiresIn: COOKIE_EXPIRATION,
         httpOnly: true,

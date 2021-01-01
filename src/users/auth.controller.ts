@@ -39,7 +39,7 @@ export class AuthController {
     async googleAuthRedirect(@GetGoogleUser() googleUser: GoogleUser, @Res() res: any) {
         let token = await this.userService.loginWithGoogle(googleUser);
         JwtConfig.cookieSetter(res, token);
-        return res.send(token);
+        return res.render('post_auth.ejs');
     }
 
 }
